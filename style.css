@@ -28,3 +28,8 @@ button {
   color: white;
   cursor: pointer;
 }
+
+textarea {
+  resize: none;
+  height: 60px;
+}
