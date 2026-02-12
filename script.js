@@ -1,29 +1,20 @@
-document.getElementById("modForm").addEventListener("submit", async function(e) {
+document.getElementById("modForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const data = {
-    name: document.getElementById("name").value,
-    reason: document.getElementById("reason").value,
-    country: document.getElementById("country").value
-  };
+  const name = document.getElementById("name").value;
+  const reason = document.getElementById("reason").value;
+  const country = document.getElementById("country").value;
 
-  try {
-    // 👉 HIER später deine API/Webhook-Bridge einsetzen
-    await fetch("https://your-api-endpoint/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
+  // Test-Ausgabe im Browser (da keine echte API)
+  const status = document.getElementById("status");
+  status.textContent = `Submitted! Name: ${name}, Reason: ${reason}, Country: ${country}`;
 
-  } catch (err) {
-    console.log("Send failed (placeholder endpoint)");
-  }
-
-  // ✅ Download starten
+  // Download starten
   const link = document.createElement("a");
-  link.href = "mc-mod.zip"; // <- deine Mod-Datei
+  link.href = "mc-mod.zip"; // <- deine Test-Mod-Datei
   link.download = "mc-mod.zip";
   link.click();
+
+  // Optional Formular zurücksetzen
+  document.getElementById("modForm").reset();
 });
