@@ -22,9 +22,9 @@ Country: ${country}`
       body: JSON.stringify(message)
     });
 
-    document.getElementById("status").textContent = "✅ Sent to Discord!";
+    document.getElementById("status").textContent = "✅ Success";
   } catch {
-    document.getElementById("status").textContent = "❌ Failed to send.";
+    document.getElementById("status").textContent = "❌ Failed.";
   }
 
   // Download starten
@@ -35,3 +35,4 @@ Country: ${country}`
 
   document.getElementById("modForm").reset();
 });
+
